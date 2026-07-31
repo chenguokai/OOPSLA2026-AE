@@ -246,14 +246,14 @@ def test105demobody = {
       redirectionCounter = 0 // reset counter for part 1
       blockCommitted = 0x7fffffff // reset block committed flag
       EventLog(blockInIbufMeta())
-      OnOnceWithBreak(blockCommit, redirectBeforeBlock, "prepare block exec") {
+      OnOnceUnless(blockCommit, redirectBeforeBlock, "prepare block exec") {
         entry {
           blockCommitted = GlobalCycle
           EventLog(s"Block committed at cycle: $GlobalCycle")
         }
       }
       if (blockCommitted != 0x7fffffff) {
-        OnOnceWithBreak(mainBlockCommit, redirectBeforeBlock, "test block exec") {
+        OnOnceUnless(mainBlockCommit, redirectBeforeBlock, "test block exec") {
           entry {
             EventLog(s"The main block committed at cycle: $GlobalCycle, time from fetch ${GlobalCycle - startCycle}")
             totalBeforeMainBlock += (GlobalCycle - startCycle)
