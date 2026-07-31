@@ -15,7 +15,7 @@ import HT.observation.*
 import HT.simrunners.XSRun
 import HT.observation.AbstractionLayer.*
 
-def test105body = {
+def test105demobody = {
   val startTime = System.currentTimeMillis()
   val zicond: Boolean = false
   val inlineAsm: Boolean = true
@@ -292,7 +292,7 @@ def test105body = {
 }
 
 
-@main def TestZicond_XS = {
+@main def TestZicondDemo_XS = {
   applyXiangShan2ndGenParam()
-  test105body
+  test105demobody
 }
