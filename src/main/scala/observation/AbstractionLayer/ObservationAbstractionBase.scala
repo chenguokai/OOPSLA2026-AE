@@ -1,0 +1,3 @@
+package observation.AbstractionLayer
+
+trait ObservationAbstractionBase
