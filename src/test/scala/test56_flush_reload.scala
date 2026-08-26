@@ -40,13 +40,13 @@ def test56body = {
 
       While(i < imm(0x10000)) {
         Attacker() {
-          if (attack) {
-            DCachePtrFlush(refv("victim_ptr"))
-          } else {
+          if (!attack && (MarchParameters.ISA == "riscv64")) {
             DCachePtrFlush(refv("base_ptr"))
+          } else {
+            DCachePtrFlush(refv("victim_ptr"))
           }
         }
-        if (MarchParameters.ISA == "riscv64" || attack)
+        if (attack)
           victim_var := imm(0)
 
         Control(){
