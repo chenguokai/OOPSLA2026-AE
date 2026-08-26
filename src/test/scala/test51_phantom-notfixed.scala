@@ -15,8 +15,8 @@ import HT.StdLib.ICacheProbe
 
 def test51body = {
   val train_rep = 3
-  val Attack: Boolean = false // may adjust to get baseline reference data
-  val offset = if (Attack) 0 else -0x200
+  val Attack: Boolean = true // may adjust to get baseline reference data
+  val offset = if (Attack) 0 else -0x100
   val PhantomOffset = MarchParameters.PageSize
 
   val ast = Victim {
@@ -136,6 +136,12 @@ def test51body = {
 @main def TestPhantom_IA = {
   //applyAMDZen5Param()
   applyIntel7thGenParam() // applies also to Intel 14 and AMD Zen 5
+  test51body
+}
+
+@main def TestPhantom_AMD = {
+  applyAMDZen4Param()
+  //applyIntel7thGenParam() // applies also to Intel 14 and AMD Zen 5
   test51body
 }
 
