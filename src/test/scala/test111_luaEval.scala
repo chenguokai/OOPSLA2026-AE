@@ -50,7 +50,7 @@ def lookupClosestLessThan(cycle: Int, commitMap: ArrayBuffer[(Int, Long)]): Long
 def test111body = {
   val test2: Boolean = false
   val ELFPath = if (test2)"/root/ELF/riscv-rootfs/luainit2.elf" else "/root/ELF/riscv-rootfs/luainit.elf"
-  val luaPath = "/root/lua/lua-rv"
+  val luaPath = "/root/ELF/riscv-rootfs/lua"
   ELFParseInit(luaPath)
   println("Debug: fileNumbers: " + fileNumbers)
   val luaPC = getELFAddr("lvm.c:1653").head
@@ -66,7 +66,9 @@ def test111body = {
   var commitMap = ArrayBuffer[(Int, Long)]() // array of pairs (cycle, pc)
 
   val commitCond = () => {
-    robObj.commitWithPC(GlobalCycle, luaPC)
+    (0 until 11).map{
+      i => robObj.commitWithPC(GlobalCycle, luaPC + i * 2)
+    }.reduce(_ || _)
   }
 
   On(commitCond, "Lua PC inst commit") {

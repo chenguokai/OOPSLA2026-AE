@@ -19,7 +19,7 @@ def test114body = {
   val Gem5TracePath = "/root/gem5/gem5-trace.txt"
   //  "/mnt/ssd4t/home/xim-intel14/luahard.vcd" "/mnt/ssd4t/home/xim-intel14/lua-correlation.vcd"
   // val vcd_path = XSRun(1000000, customELF = Some(ELFPath)) // "/home/xim-intel14/XS///////build/2025-10-07@16:00:31.vcd" //
-  val luaPath = "/root/lua/lua-amd64"
+  val luaPath = "/root/gem5/lua"
   ELFParseInit(luaPath)
   println("Debug: fileNumbers: " + fileNumbers)
   val luaPC = getELFAddr("lvm.c:1665").head
