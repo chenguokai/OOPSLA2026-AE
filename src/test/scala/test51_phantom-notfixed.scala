@@ -135,13 +135,12 @@ def test51body = {
 
 @main def TestPhantom_IA = {
   //applyAMDZen5Param()
-  applyIntel7thGenParam() // applies also to Intel 14 and AMD Zen 5
+  applyIntel7thGenParam() // applies also to Intel 14
   test51body
 }
 
 @main def TestPhantom_AMD = {
   applyAMDZen4Param()
-  //applyIntel7thGenParam() // applies also to Intel 14 and AMD Zen 5
   test51body
 }
 

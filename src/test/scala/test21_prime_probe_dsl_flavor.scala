@@ -20,7 +20,7 @@ import HT.simrunners.{XSRun, emu_path}
 import HT.observation.AbstractionLayer.*
 
 def test21_body = {
-  val attack = true
+  val attack: Boolean = true
   val ast = Victim{
     // val controlInst = ControlflowInst() // for testing unused obj
 
