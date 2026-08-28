@@ -18,6 +18,7 @@ val patchScriptPrefix = s"/root/HT/src/main/python"
 
 import java.nio.file.{Files, Paths}
 import scala.util.{Try, Random}
+import scala.sys.process._
 
 val PythonHome = "/usr/"
 
@@ -28,7 +29,10 @@ object TmpFiles {
 
     while (attempt < 5 && result.isEmpty) {
       val path = Paths.get(s"/tmp/ga_run")
-      result = Try(Files.createDirectory(path)).toOption
+      result = Try {
+        Seq("rm", "-rf", path.toString).!
+        Files.createDirectory(path)
+      }.toOption
       attempt += 1
     }
 

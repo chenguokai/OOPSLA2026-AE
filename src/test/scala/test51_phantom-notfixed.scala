@@ -15,8 +15,8 @@ import HT.StdLib.ICacheProbe
 
 def test51body = {
   val train_rep = 3
-  val Attack: Boolean = true // may adjust to get baseline reference data
-  val offset = if (Attack) 0 else -0x100
+  val attack: Boolean = true // may adjust to get baseline reference data
+  val offset = if (attack) 0 else -0x100
   val PhantomOffset = MarchParameters.PageSize
 
   val ast = Victim {
