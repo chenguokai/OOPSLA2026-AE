@@ -27,7 +27,7 @@ object TmpFiles {
     var result: Option[java.nio.file.Path] = None
 
     while (attempt < 5 && result.isEmpty) {
-      val path = Paths.get(s"/tmp/ga_run_${Random.nextInt(100000)}")
+      val path = Paths.get(s"/tmp/ga_run")
       result = Try(Files.createDirectory(path)).toOption
       attempt += 1
     }
