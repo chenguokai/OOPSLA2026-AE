@@ -368,12 +368,7 @@ def test_phantom_range_body(): Any = {
   test_phantom_range_body()
 }
 @main def testVCDPhantomRange_IA() = {
-  applyIntel14thGenParam() // apply to Intel 7th gen but AMD is not vulnerable to this variant
+  applyIntel14thGenParam() // apply to Intel 14/7th gen
   test_phantom_range_body()
 }
-
-/*
-@main def testVCDPhantomRange_AMD() = {
-  applyAMDZen5Param() // not vulnerable to this variant
-  test_phantom_range_body()
-}*/
+// check test51_phantom-notfixed for the AMD Zen 4 implementation
